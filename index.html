@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokemons Creation and Parameters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/cors.css" />
+    <link rel="icon" type="image/png" href="static/img/pngwing 1.svg" />
+  </head>
+  <body>
+    <div class="k_block_ec k_block_table k_unsupport_display">
+      <div class="parent__block1">
+        <div class="parent__block1_top">
+          <div class="k_unsupport_display_top">
+            <img src="static/img/scaling.png" />
+          </div>
+        </div>
+        <div class="parent__block1_center">Размер вашего экрана слишком мал</div>
+        <div class="parent__block1_bottom">
+          Пожалуйста, разверните окно браузера на весь экран или попробуйте с другого устройства
+        </div>
+        <div class="gradient_background"></div>
+      </div>
+    </div>
+
+    <div class="parent k_support_display">
+      <div class="content">
+        <div class="parent__block1">
+          <div class="parent__block1_form">
+            <form id="storePokemonForm" action="#" method="post">
+              <div class="parent__block1_title">Создание покемона</div>
+              <div class="inputBox">
+                <input class="id_trainer_form_1 k_token" type="text" name="token" id="storeFormTrainerToken" required />
+                <span>Токен</span>
+              </div>
+              <div class="inputBox">
+                <input
+                  class="id_trainer_form_1 k_pokemon_name"
+                  type="text"
+                  name="name"
+                  id="storeFormPokemonName"
+                  required
+                />
+                <span class="placeH_mail">Имя покемона</span>
+              </div>
+              <div class="inputBox">
+                <input
+                  class="id_trainer_form_1 k_image_href"
+                  type="photo"
+                  name="name"
+                  id="storeFormPokemonPhotoURL"
+                  required
+                />
+                <span class="placeH_mail">Ссылка на фото покемона</span>
+              </div>
+              <div class="k_main_error_text" style="display: none"></div>
+              <div>
+                <input
+                  class="submit_authorization k_create_pokemon"
+                  type="submit"
+                  id="storeFormSubmitButton"
+                  value="Создать покемона"
+                />
+              </div>
+            </form>
+            <div class="parent__mainblock_card_pokemon k_pokemon_form_1">
+              <div class="parent__mainblock_card_img_pokemon">
+                <img id="storeFormShowPhoto" class="img_pokemon_card" src="static/img/default_pokemon.svg" />
+              </div>
+              <div class="parent__mainblock_card_name_pokemon" id="storeFormShowName">Имя покемона</div>
+              <div class="parent__mainblock_card_parameters_pokemon copy_id">
+                <div
+                  class="parent__mainblock_card_pokemon_id_number_pokemon copy_id_number"
+                  data-last=""
+                  id="storeFormShowId"
+                >
+                  ID покемона
+                </div>
+                <!-- <div class="parent__mainblock_card_pokemon_id_number_pokemon">
+                  <a href="#">
+                    <figure class="parent__mainblock_card_pokemon_id_copy_pokemon copy_id_copy">
+                      <img src="static/img/copy.svg" />
+                    </figure>
+                  </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="parent__block1_form">
+            <!-- Форма запроса покемона -->
+            <form id="getPokemonForm" action="#" method="post">
+              <div class="parent__block1_title">Запрос параметров покемона</div>
+              <div class="inputBox">
+                <input class="id_trainer_form_1 k_id_pokemon" type="text" name="name" id="getFormPokemonId" required />
+                <span class="placeH_mail">ID покемона</span>
+              </div>
+              <div style="height: 57px; display: flex; align-items: center">
+                <input type="checkbox" id="getFormGoodbyeCheckbox" name="killPokemon" />
+                <label for="getFormGoodbyeCheckbox" style="margin-left: 0.5rem"
+                  >Проститься с другом (это его убьёт)</label
+                >
+              </div>
+              <div class="inputBox" style="visibility: hidden">
+                <input
+                  class="id_trainer_form_1 k_id_pokemon"
+                  type="text"
+                  name="getTrainerToken"
+                  id="getFormTrainerToken"
+                />
+                <span class="placeH_mail">Токен</span>
+              </div>
+              <div class="k_main_error_text" style="display: none"></div>
+              <div>
+                <input
+                  class="submit_authorization request k_get_pokemon"
+                  type="submit"
+                  id="getFormSubmitButton"
+                  value="Запросить параметры"
+                />
+              </div>
+            </form>
+
+            <div class="parent__mainblock_card_pokemon k_pokemon_form_2">
+              <div class="parent__mainblock_card_img_pokemon">
+                <img class="img_pokemon_card" id="getPokemonImg" src="static/img/default_pokemon.svg" />
+              </div>
+              <div class="parent__mainblock_card_name_pokemon" id="getFormPokemonName">Имя покемона</div>
+
+              <!-- Параметры покемона -->
+              <div class="parent__mainblock_card_parameters_pokemon">
+                <div class="parent__mainblock_card_pokemon_id_number_pokemon k_hide" id="paramsStub">
+                  Параметры покемона
+                </div>
+                <div
+                  class="parent__mainblock_card_parameters_badge_pokemon k_pokeball pokemonParams"
+                  style="display: none"
+                  id="paramsInPokeball"
+                >
+                  <figure class="parent__mainblock_card_pokemon_id_copy">
+                    <img src="static/img/in_pokeball.svg" />
+                  </figure>
+                </div>
+                <div
+                  class="parent__mainblock_card_parameters_badge k_die pokemonParams"
+                  style="display: none"
+                  id="paramsIsDead"
+                >
+                  <figure><img src="static/img/skull.svg" /></figure>
+                </div>
+                <div
+                  class="parent__mainblock_card_parameters_power k_power disabled pokemonParams"
+                  id="paramsAttack"
+                ></div>
+                <!-- <div class="copy_id">
+                  <div class="parent__mainblock_card_pokemon_id_number_pokemon copy_id_number disabled">1007</div>
+                  <div class="parent__mainblock_card_pokemon_id_number_pokemon">
+                    <a href="#">
+                      <figure class="parent__mainblock_card_pokemon_id_copy_pokemon copy_id_copy" id="paramsCopyButton">
+                        <img src="static/img/copy.svg" />
+                      </figure>
+                    </a>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parent_gradient_background">
+        <div class="gradient_background"></div>
+      </div>
+    </div>
+    <script src="static/js/app.js"></script>
+  </body>
+</html>

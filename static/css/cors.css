@@ -1,0 +1,582 @@
+.hidden_overflow {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100%;
+}
+
+.no_scroll {
+  overflow: hidden;
+}
+
+#search:focus-visible {
+  border: solid 1px #ed6f2d;
+  outline: none;
+}
+
+.disabled {
+  display: none !important;
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .parent {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  .parent_gradient_background {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+  }
+  .gradient_background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 45px;
+    top: 176px;
+    background: radial-gradient(
+      59.88% 59.88% at 50% 50%,
+      #f05828 0%,
+      #f7c615 44.27%,
+      #ffdd65 73.96%,
+      #ffe382 80.73%,
+      #ffffff 100%
+    );
+    filter: blur(200px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .ID {
+    width: 143px;
+    left: 331px;
+    padding-left: 17px;
+  }
+  .parent__mainblock_load_more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .parent__mainblock_load_more_button {
+    width: 178px;
+    height: 48px;
+    background: #ed6f2d;
+    border-radius: 12px;
+    border: #ed6f2d 1px solid;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+  .parent__mainblock {
+    width: 1276px;
+    display: grid;
+    grid-template-columns: repeat(3, 389px);
+    column-gap: 16px;
+    row-gap: 50px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 0 40px 0 40px;
+  }
+  .parent__mainblock_pokemon {
+    width: 1276px;
+    display: grid;
+    grid-template-columns: repeat(4, 288px);
+    column-gap: 16px;
+    row-gap: 56px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 0 40px 0 40px;
+  }
+  .parent__mainblock_shop {
+    width: 1276px;
+    display: grid;
+    grid-template-columns: repeat(4, 288px);
+    column-gap: 16px;
+    row-gap: 50px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 167px;
+    padding: 0 40px 0 40px;
+  }
+  .parent__mainblock_card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 389px;
+    height: 193px;
+    background: #ffffff;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 40px;
+    border: #ffffff solid 2px;
+  }
+  .parent__mainblock_card:hover {
+    border: #ed6f2d solid 2px;
+  }
+  .parent__mainblock_card_link_pokemon {
+    position: absolute;
+  }
+  .parent__mainblock_card_pokemon {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    width: 288px;
+    height: 334px;
+    background: #ffffff;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 40px;
+    align-items: center;
+    border: #ed6f2d solid 2px;
+    margin-bottom: 20px;
+  }
+  .parent__mainblock_card_img {
+    position: absolute;
+    width: 103px;
+    height: 197px;
+    left: 0;
+    top: -32px;
+    display: flex;
+    justify-content: center;
+    padding-left: 24px;
+  }
+  .parent__mainblock_card_img_pokemon {
+    position: relative;
+    width: 228px;
+    height: 200px;
+    left: 0;
+    top: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  .parent__mainblock_shop_card_img {
+    position: relative;
+    width: 103px;
+    height: 197px;
+    left: 0;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 21px;
+  }
+  .parent__mainblock_card_name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
+    top: 38px;
+    left: 122px;
+  }
+  .parent__mainblock_card_name_pokemon {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
+    top: 38px;
+    left: 122px;
+  }
+  .parent__mainblock_card_trainer_id_number {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #222222;
+  }
+
+  .level1 {
+    color: #45d221;
+    border: 1px solid #45d221;
+  }
+  .level2 {
+    color: #bb2ded;
+    border: 1px solid #bb2ded;
+  }
+  .level3plus {
+    color: #ed2d2d;
+    border: 1px solid #ed2d2d;
+  }
+  .qnt0 div {
+    opacity: 0.2;
+  }
+  .qnt1 div:nth-of-type(2) {
+    opacity: 0.2;
+  }
+  .qnt1 div:nth-of-type(3) {
+    opacity: 0.2;
+  }
+  .qnt2 div:nth-of-type(3) {
+    opacity: 0.2;
+  }
+  .disabled_card {
+    color: #607d8b;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .disabled_card_border {
+    border: 1px solid #607d8b;
+  }
+  .disabled_card_base {
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    opacity: 0.6;
+  }
+}
+.parent__mainblock_card_parameters_pokemon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  bottom: 15px;
+  position: relative;
+  column-gap: 12px;
+}
+
+.img_pokemon_card {
+  width: inherit;
+}
+
+.parent__mainblock_card_pokemon_id_number_pokemon {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.power1 {
+  color: #45d221;
+  border: 1px solid #45d221;
+}
+
+.power2 {
+  color: #bb2ded;
+  border: 1px solid #bb2ded;
+}
+
+.power3plus {
+  color: #ed2d2d;
+  border: 1px solid #ed2d2d;
+}
+
+.one_pokemon {
+  width: 498px;
+  height: 410px;
+  position: absolute;
+  left: 322px;
+  top: 139px;
+}
+
+.parameters_block_trainer_arrow {
+  margin-left: 58px;
+}
+
+.parent__block1 {
+  position: relative;
+  width: 1280px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  column-gap: 50px;
+  justify-content: space-evenly;
+}
+
+.parent__block1_title {
+  width: 360px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 42px;
+  text-align: center;
+  color: #000000;
+  z-index: 3;
+  margin-bottom: 20px;
+}
+
+.parent__block1_form,
+.parent__block2_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 2vh;
+  background: #ffffff;
+  border-radius: 15px;
+  z-index: 2;
+  width: 420px;
+  row-gap: 10px;
+}
+
+#form_authorization,
+#form_request {
+  display: contents;
+}
+
+.id_trainer_form_1 {
+  width: 360px;
+  height: 57px;
+  background: #f8f8f8;
+  border: 1px solid #e3e5e6;
+  border-radius: 6px;
+  flex: none;
+  flex-grow: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  top: calc(50% - 8px);
+  padding-left: 15px;
+  padding-top: 20px;
+}
+.id_trainer_form_1:focus-visible {
+  outline: black solid 1px;
+}
+.id_trainer_form_1.half {
+  width: 168px;
+}
+.id_trainer_form_1:focus::placeholder {
+  transform: translateY(-20px);
+}
+
+.inputBox {
+  position: relative;
+}
+.inputBox.inputs {
+  margin-bottom: 15px;
+}
+
+.payment_fields {
+  width: 380px;
+  height: 57px;
+  background: #454545;
+  border: 1px solid #454545;
+  border-radius: 6px;
+  flex: none;
+  flex-grow: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  padding-left: 15px;
+  padding-top: 20px;
+  color: white;
+}
+.payment_fields:focus-visible {
+  outline: black solid 1px;
+}
+.payment_fields:focus {
+  outline: white solid 1px;
+  background: none !important;
+}
+.payment_fields:focus::placeholder {
+  transform: translateY(-20px);
+}
+
+.registration_inputs {
+  width: 360px;
+  height: 57px;
+  background: #f8f8f8;
+  border: 1px solid #e3e5e6;
+  border-radius: 6px;
+  flex: none;
+  flex-grow: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  top: calc(50% - 8px);
+  padding-left: 15px;
+  padding-top: 20px;
+  margin-top: 9px;
+}
+.registration_inputs:focus-visible {
+  outline: black solid 1px;
+}
+.registration_inputs:focus::placeholder {
+  transform: translateY(-20px);
+}
+
+.inputBox span {
+  position: absolute;
+  top: 9px;
+  left: 5px;
+  padding: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  transition: 0.5s;
+  pointer-events: none;
+  color: #808080;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span {
+  transform: translateY(-17px);
+}
+
+.pays input:focus ~ span,
+.pays input:valid ~ span {
+  transform: translateY(0) !important;
+}
+
+.pays input:focus ~ .placeH_payment_data,
+.pays input:valid ~ .placeH_payment_data {
+  display: none;
+}
+
+.placeH_mail {
+  top: 9px !important;
+}
+
+.placeH_foto {
+  transform: translateY(-17px);
+}
+
+.placeH_payment {
+  color: white !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  top: 0 !important;
+}
+
+.placeH_payment_data {
+  top: 20px !important;
+}
+
+.pass_wraper {
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  flex-wrap: wrap;
+  column-gap: 24px;
+}
+
+.code_term_wraper {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  flex-wrap: wrap;
+  column-gap: 16px;
+}
+
+.error_border {
+  border: 1px solid #e75149;
+}
+
+.payment_fields.short {
+  width: 182px;
+}
+
+.submit_authorization {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 30px;
+  width: 360px;
+  height: 57px;
+  background: #ed6f2d;
+  border-radius: 6px;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  margin: 10px 0 17px 0;
+  cursor: pointer;
+}
+/* .submit_authorization.request {
+  margin-top: 36px !important;
+} */
+
+.k_unsupport_display {
+  display: none;
+}
+
+.k_main_error_text {
+  color: red;
+  margin-top: 6px;
+}
+
+.k_error {
+  border: 1px solid red;
+}
+
+.power1 {
+  color: #45d221;
+  border: 1px solid #45d221;
+}
+.power2 {
+  color: #bb2ded;
+  border: 1px solid #bb2ded;
+}
+.power3 {
+  color: #ed2d2d;
+  border: 1px solid #ed2d2d;
+}
+
+.parent__mainblock_card_parameters_power {
+  border-radius: 20px;
+  width: 76px;
+  height: 33px;
+  padding: 7px 0 0 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.k_power + .copy_id > .parent__mainblock_card_pokemon_id_number_pokemon + div {
+  margin-left: 5px;
+}
+
+.k_power + .copy_id {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1279px) {
+  .k_support_display {
+    display: none;
+  }
+  .k_unsupport_display {
+    display: block;
+  }
+}
