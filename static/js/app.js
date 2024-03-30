@@ -1,5 +1,5 @@
-const pokemonApi = 'https://api.pokemonbattle.me:9104/pokemons'
-const baseURI = 'https://api.pokemonbattle.me:9104'
+const pokemonApi = 'https://api.pokemonbattle.me/v2/pokemons'
+const baseURI = 'https://api.pokemonbattle.me/v2'
 // const trainer_token = ''
 
 // Выберём заранее все необходимые элементы
@@ -220,9 +220,9 @@ const storePokemon = async () => {
   // Итак, мы получили ответ. Но это не объект с покемоном - это объект с ID покемона и сообщением об успехе
   // Запросим покемона и отобразим в форме отправки
   const pokemon = await httpclient(`${pokemonApi}?pokemon_id=${result.id}`)
-  storeFormShowId.textContent = pokemon.id
-  storeFormShowName.textContent = pokemon.name
-  storeFormShowPhoto.src = baseURI + pokemon.photo
+  storeFormShowId.textContent = pokemon.data[0].id
+  storeFormShowName.textContent = pokemon.data[0].name
+  storeFormShowPhoto.src = pokemon.data[0].photo
   storeFormSubmitButton.disabled = false
 }
 
