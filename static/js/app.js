@@ -1,5 +1,5 @@
-const pokemonApi = 'https://api.pokemonbattle.me/v2/pokemons'
-const baseURI = 'https://api.pokemonbattle.me/v2'
+const pokemonApi = 'https://api.pokemonbattle.ru/v2/pokemons'
+const srotageUrl = 'https://storage.yandexcloud.net/qastudio/pokemon_battle/pokemons'
 // const trainer_token = ''
 
 // Выберём заранее все необходимые элементы
@@ -150,7 +150,8 @@ const getPokemon = async () => {
 
   // Отключим кнопку до момента получения ответа
   getFormSubmitButton.disabled = true
-  const pokemon = await httpclient(path)
+  const pokemonResponse = await httpclient(path)
+  const pokemon = pokemonResponse?.data[0]
   getFormSubmitButton.disabled = false
 
   // Если наш HTTP-клиент не вернул покемона - можно сразу выходить, ошибки уже в консоли
@@ -169,7 +170,8 @@ const getPokemon = async () => {
     RIP = 'RIP '
   }
   // Выведем изображение Покемона
-  getPokemonImg.src = baseURI + pokemon.photo
+
+  getPokemonImg.src = srotageUrl + '/' + pokemon.photo_id.toString().padStart(3, '0') + '.png'
 
   // Выведем имя покемона
   getFormPokemonName.textContent = RIP + pokemon.name
@@ -195,7 +197,7 @@ const killPokemon = async () => {
   }
   // Отключим кнопку отправки на время
   getFormSubmitButton.disabled = true
-  const response = await httpclient(`${pokemonApi}/kill`, payload, 'POST', { trainer_token: getFormTrainerToken.value })
+  const response = await httpclient(`${pokemonApi}/knockout`, payload, 'POST', { trainer_token: getFormTrainerToken.value })
   // Так как функция убийства покемона опасна - сотрём на всякий случай токен. Понадобится - введут ещё раз
   getFormTrainerToken.value = ''
   // Разблокируем кнопку
@@ -207,7 +209,7 @@ const storePokemon = async () => {
   // Здесь нашей полезной нагрузкой является имя покемона и ссылка на изображение
   const payload = {
     name: storeFormPokemonName.value,
-    photo: storeFormPokemonPhotoURL.value,
+    photo_id: storeFormPokemonPhotoURL.value,
   }
 
   // Заблокируем кнопку отправки на время
@@ -222,7 +224,7 @@ const storePokemon = async () => {
   const pokemon = await httpclient(`${pokemonApi}?pokemon_id=${result.id}`)
   storeFormShowId.textContent = pokemon.data[0].id
   storeFormShowName.textContent = pokemon.data[0].name
-  storeFormShowPhoto.src = pokemon.data[0].photo
+  storeFormShowPhoto.src = srotageUrl + '/' + pokemon.data[0].photo_id.toString().padStart(3, '0') + '.png'
   storeFormSubmitButton.disabled = false
 }
 
